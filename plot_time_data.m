@@ -31,10 +31,5 @@ function plot_helper(time_vector, signal,title_name, size)
   plot(time_vector, signal(1:size));
   xlabel('Time (seconds)');
   ylabel('Amplitude (Volts)');
-
-
-
-
-
   title(title_name);
 end
