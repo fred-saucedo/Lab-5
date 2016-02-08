@@ -7,7 +7,7 @@ Fd = 0:1/N:(N-1)/N;
 figure(figure_num);
 
 DFT = {w,x,y,z};
-names = {'LosAngelesSub', 'AkulaSub', 'Typhoon', 'TxPulse'};
+names = {'AkulaSub', 'TxPulse', 'LosAngeles', 'Typhoon'};
 for n=1:numel(DFT)
     subplot(2,2,n);
     plot_helper(DFT{n},Fd,names{n},fsample);
@@ -15,14 +15,12 @@ end
 
 function plot_helper(DFT,Fd,name,fsample)
   DFT = DFT(1:250);
-  if nargin < 4
-    DFT = abs(fft(DFT))/length(DFT);
-    stem(Fd*fsample,DFT,'.');
-    xlabel('Analog Frequency');
-    ylabel('Magnitude dB');
-    title(name);
-    grid on;
-  end
+  DFT = abs(fft(DFT))/length(DFT);
+  stem(Fd*fsample,DFT,'.');
+  xlabel('Analog Frequency');
+  ylabel('Magnitude dB');
+  title(name);
+  grid on;
 
 end
 
